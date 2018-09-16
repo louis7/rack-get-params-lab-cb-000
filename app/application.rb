@@ -17,7 +17,7 @@ class Application
     else
       resp.write "Path Not Found"
     end
-  elsif req.path.match(/cart/)
+  else req.path.match(/cart/)
     @@cart.each do |item|
     resp.write "#{item}\n"
     end
@@ -31,4 +31,5 @@ class Application
       return "Couldn't find #{search_term}"
     end
   end
+end
 end
