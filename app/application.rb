@@ -11,9 +11,16 @@ class Application
       @@items.each do |item|
         resp.write "#{item}\n"
       end
+      
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
+
+    elsif req.path.match(/cart/)
+      @@cart.each do |item|
+      resp.write "#{item}\n"
+      end
+
     else
       resp.write "Path Not Found"
     end
